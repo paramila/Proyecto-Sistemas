@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clientes>
+    <cliente id="C001">
+        <nombre>Pablo</nombre>
+        <apellidos>Ramírez</apellidos>
+        <email>pabloramirezlacalle@gmail.com</email>
+        <fecha>11/22/2025 10:00</fecha>
+    </cliente>
+
+</clientes>
