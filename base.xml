@@ -5,6 +5,14 @@
         <apellidos>Ramírez</apellidos>
         <email>pabloramirezlacalle@gmail.com</email>
         <fecha>07/11/2025 10:30</fecha>
+
+    </cliente>
+    <cliente id="C002">
+        <nombre>Yazid</nombre>
+        <apellidos>Aissou</apellidos>
+        <email>yazidaissou10@gmail.com</email>
+        <fecha>07/11/2025 21:00</fecha>
+
     </cliente>
 
 </clientes>

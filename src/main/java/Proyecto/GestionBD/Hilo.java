@@ -39,7 +39,7 @@ public class Hilo implements Runnable {
     private void mandarCorreo(String nombre, String apellido, String correo, String fecha) {
         HttpsURLConnection con=null;
         try {
-            URL url= new URL("https://n8n.z-jobs.site/webhook-test/f6dfea10-df5e-4990-ac25-15792b13ecca");
+            URL url= new URL("https://n8n.z-jobs.site/webhook/f6dfea10-df5e-4990-ac25-15792b13ecca");
              con= (HttpsURLConnection) url.openConnection();
             con.setDoOutput(true);
             con.setRequestMethod("POST");
