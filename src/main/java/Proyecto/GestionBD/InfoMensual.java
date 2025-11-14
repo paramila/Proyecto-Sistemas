@@ -4,11 +4,10 @@ import jakarta.xml.bind.annotation.*;
 @XmlRootElement(namespace = "es.estadisticas.sdis")
 public class InfoMensual implements Serializable {
     private List<Cliente> lista;
+    private String nombre;
     public InfoMensual() {
     }
-    public InfoMensual(List<Cliente> lista) {
-        this.lista = lista;
-    }
+
     @XmlElementWrapper(name="listaClientes")
     @XmlElement(name="Cliente")
     public List<Cliente> getLista() {
@@ -16,6 +15,13 @@ public class InfoMensual implements Serializable {
     }
     public void setLista(List<Cliente> lista) {
         this.lista = lista;
+    }
+    @XmlElement(name="fecha")
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
 }
