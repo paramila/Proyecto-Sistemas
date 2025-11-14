@@ -9,67 +9,78 @@ import javax.xml.parsers.*;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
+// NOTA: Asumo que Hilo y Gestion están en el mismo paquete (directorio)
 public class Hilo implements Runnable {
-    private Element cliente;
+
+
+    private Element evento;
 
     public Hilo(Element element) {
-
-        this.cliente = element;
+        this.evento = element;
     }
+
     public void run() {
-        String nombre   = cliente.getElementsByTagName("nombre").item(0).getTextContent().trim();
-        String apellido = cliente.getElementsByTagName("apellidos").item(0).getTextContent().trim();
-        String correo   = cliente.getElementsByTagName("email").item(0).getTextContent().trim();
-        String fecha    = cliente.getElementsByTagName("fecha").item(0).getTextContent();
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date d = null;
         try {
-            d = sdf.parse(fecha);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        if (sdf.format(d).equals(sdf.format(new Date()))) {
-                mandarCorreo(nombre,apellido,correo,fecha);
+            // --- 1. LEER LOS DATOS DEL XML (Corregido) ---
+            String nombre   = evento.getElementsByTagName("nombre").item(0).getTextContent().trim();
+            String correo   = evento.getElementsByTagName("email").item(0).getTextContent().trim();
+
+            String telefono = evento.getElementsByTagName("telefono").item(0).getTextContent().trim();
+            String fecha    = evento.getElementsByTagName("fecha").item(0).getTextContent().trim();
+
+            if(correo.isEmpty()) {
+                System.err.println("[Hilo " + Thread.currentThread().getId() + "] " + nombre + " no tiene email. Saltando.");
+                return;
             }
+            mandarCorreo(nombre, telefono, correo, fecha);
 
 
-
+        } catch (Exception e) {
+            System.err.println("[Hilo " + Thread.currentThread().getId() + "] Error general: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
-    private void mandarCorreo(String nombre, String apellido, String correo, String fecha) {
-        HttpsURLConnection con=null;
+
+    // --- 3. MANDAR CORREO (Corregido) ---
+    private void mandarCorreo(String nombre, String telefono, String correo, String fecha) {
+        HttpsURLConnection con = null;
         try {
-            URL url= new URL("https://n8n.z-jobs.site/webhook/f6dfea10-df5e-4990-ac25-15792b13ecca");
-             con= (HttpsURLConnection) url.openConnection();
+            // ¡¡CAMBIO!! Usamos la variable estática de Gestion
+            URL url = new URL(Gestion.URL_SEND_EMAIL);
+
+            con = (HttpsURLConnection) url.openConnection();
             con.setDoOutput(true);
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/json");
+
+            // ¡¡CAMBIO!! Enviamos 'telefono', no 'apellido'
             StringBuilder texto = new StringBuilder();
             texto.append("{");
-            texto.append("\"nombre\":\""+nombre+"\",");
-            texto.append("\"apellido\":\""+apellido+"\",");
-            texto.append("\"correo\":\""+correo+"\",");
-            texto.append("\"fecha\":\""+fecha+"\"");
+            texto.append("\"nombre\":\"").append(nombre).append("\",");
+            texto.append("\"telefono\":\"").append(telefono).append("\",");
+            texto.append("\"correo\":\"").append(correo).append("\",");
+            texto.append("\"fecha\":\"").append(fecha).append("\"");
             texto.append("}");
+
             String enviar = texto.toString();
+
             try(OutputStream os = con.getOutputStream()) {
                 os.write(enviar.getBytes());
                 os.flush();
             }
-            BufferedReader is = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            String linea= is.readLine();
-            System.out.println(linea);
 
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+            // Leemos la respuesta de n8n
+            BufferedReader is = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String linea = is.readLine();
+            System.out.println("[Hilo "+ Thread.currentThread().getId() + "] Respuesta de n8n: " + linea);
+
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        finally {
-            if(con!=null){
+            // Lo cambiamos para que no pare la ejecución de otros hilos
+            System.err.println("[Hilo " + Thread.currentThread().getId() + "] Error de E/S al mandar correo: " + e.getMessage());
+        } finally {
+            if(con != null) {
                 con.disconnect();
             }
         }
-
     }
 }
