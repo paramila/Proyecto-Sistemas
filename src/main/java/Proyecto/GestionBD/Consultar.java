@@ -27,7 +27,8 @@ public class Consultar implements Runnable{
                 data.flush();
             }
             try(FileOutputStream file= new FileOutputStream("Estadisticas_creadas.pdf");
-                InputStream in= https.getInputStream();){
+                DataInputStream in= new DataInputStream(https.getInputStream());){
+                in.readLine();
                 int leidos=0;
                 byte [] buffer= new byte[1024];
                 while((leidos=in.read(buffer))!=-1){
