@@ -11,6 +11,7 @@ import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,6 +23,8 @@ public class Gestion extends TimerTask {
 
     public static final String URL_GET_CITAS = "https://n8n.z-jobs.site/webhook/b00dc26f-bc0a-47e5-8df6-44af58caac5d";
     public static final String URL_SEND_EMAIL = "https://n8n.z-jobs.site/webhook/f6dfea10-df5e-4990-ac25-15792b13ecca";
+    private static final int numBarberos = 3;
+    private ArrayList<String> nombrebarberos= new ArrayList<>(List.of("Juan","Pablo","Esteban"));// mas alante poner una clase enumeracion con los barberos que hay
     private  final List<Cliente> lista;
 
     public Gestion(List<Cliente> lista) {
@@ -53,6 +56,14 @@ public class Gestion extends TimerTask {
 
         NodeList nodes = root.getElementsByTagName("evento");
         System.out.println("Encontrados " + nodes.getLength() + " eventos/citas...");
+
+
+        ExecutorService ex = Executors.newFixedThreadPool(numBarberos);
+        for (int i = 0; i < numBarberos; i++) {
+            ex.execute(new HiloBarbero(nodes,numBarberos, i,nombrebarberos.get(i))); // Le pasas la lista completa y el ID
+        }
+
+        ex.shutdown();
 
 
 
