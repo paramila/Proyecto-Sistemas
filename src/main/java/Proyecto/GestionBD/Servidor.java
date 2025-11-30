@@ -4,9 +4,7 @@ import java.net.Socket;
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-/*
-Este servidor se dedica unica y
- */
+
 public class Servidor {
     private static final int puerto = 8080;
     private static final long periodoDia= 24L * 60L *60L * 1000L;
