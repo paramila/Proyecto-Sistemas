@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:infoMensual xmlns:ns2="infomensual">
+    <listaClientes>
+        <Cliente>
+            <Código_postal>26005</Código_postal>
+            <nombre>Juan</nombre>
+            <telefono>600123456</telefono>
+        </Cliente>
+        <Cliente>
+            <Código_postal>26004</Código_postal>
+            <nombre>Jaime</nombre>
+            <telefono>600123456</telefono>
+        </Cliente>
+        <Cliente>
+            <Código_postal>26006</Código_postal>
+            <nombre>Lucas</nombre>
+            <telefono>600123456</telefono>
+        </Cliente>
+        <Cliente>
+            <Código_postal>26004</Código_postal>
+            <nombre>Pedro</nombre>
+            <telefono>612345678</telefono>
+        </Cliente>
+        <Cliente>
+            <Código_postal>26005</Código_postal>
+            <nombre>Marcos</nombre>
+            <telefono>600123456</telefono>
+        </Cliente>
+        <Cliente>
+            <Código_postal>26005</Código_postal>
+            <nombre>Rafael</nombre>
+            <telefono>600123456</telefono>
+        </Cliente>
+    </listaClientes>
+    <fecha>Primer Semestre</fecha>
+</ns2:infoMensual>

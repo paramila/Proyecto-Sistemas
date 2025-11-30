@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Distribución Geográfica de Clientes en Logroño</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #6a0572; /* Dark purple */
+            --secondary-color: #a442e9; /* Lighter purple */
+            --accent-color: #e9ebee; /* Light grey */
+            --text-color: #333;
+            --white: #fff;
+            --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--white) 100%);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            margin: 20px 0;
+            box-sizing: border-box;
+            border-top: 5px solid var(--primary-color);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.6em;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1em;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        ul li {
+            background-color: var(--accent-color);
+            margin-bottom: 10px;
+            padding: 12px 18px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.2s ease-in-out;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        ul li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .cp-code {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1em;
+        }
+
+        .client-count {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+
+        .summary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: var(--shadow-medium);
+            font-style: italic;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .suggestions {
+            background-color: #f7f9fc;
+            border-left: 5px solid var(--secondary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .suggestions h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .suggestions ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding: 0;
+        }
+
+        .suggestions li {
+            background-color: transparent;
+            box-shadow: none;
+            padding: 5px 0;
+            margin-bottom: 5px;
+            border-radius: 0;
+        }
+
+        .suggestions li strong {
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Análisis Geográfico de Clientela en Logroño</h1>
+
+        <h2>Distribución de Códigos Postales más Frecuentes</h2>
+        <p>Los siguientes Códigos Postales (CP) representan las zonas con mayor concentración de clientes en Logroño, indicando los barrios principales asociados:</p>
+        <ul>
+            <li>
+                <span class="cp-code">26005</span> (Barrios como La Estrella, El Campillo o la zona sur de Valle del Ebro)
+                <span class="client-count">3 Clientes</span>
+            </li>
+            <li>
+                <span class="cp-code">26004</span> (Barrios como San Antón, Siete Infantes de Lara)
+                <span class="client-count">2 Clientes</span>
+            </li>
+            <li>
+                <span class="cp-code">26006</span> (Barrios como Cascajos, La Guindalera - ubicación de la peluquería)
+                <span class="client-count">1 Cliente</span>
+            </li>
+        </ul>
+
+        <h2>Resumen de Concentración Geográfica</h2>
+        <div class="summary">
+            <p>La base de clientes en Logroño muestra una distribución notable en varias zonas residenciales clave. Los barrios de La Estrella y San Antón (CP 26005 y 26004) son los que agrupan la mayor parte de la clientela actual, sugiriendo una buena penetración en estas áreas. A pesar de que la peluquería está situada en Cascajos (CP 26006), esta zona cuenta con la menor representación en el muestreo. Esta distribución indica una base de clientes algo dispersa en el sur y oeste de Logroño, pero con claros focos de mayor actividad. El flujo de clientes parece provenir principalmente de barrios adyacentes a la ubicación de la peluquería, pero no de su código postal inmediato.</p>
+        </div>
+
+        <h2>Sugerencias de Marketing y Mejora</h2>
+        <div class="suggestions">
+            <h3>Estrategias para Logroño</h3>
+            <ul>
+                <li><strong>Refuerzo Local en 26006 (Cascajos/La Guindalera):</strong> Dada la baja representación, es crucial implementar campañas de proximidad (buzoneo, colaboraciones con negocios locales, ofertas para residentes) para atraer clientes en el propio barrio de la peluquería.</li>
+                <li><strong>Programas de Fidelización en 26005 (La Estrella/Valle del Ebro) y 26004 (San Antón/Siete Infantes):</strong> Dado que son los CP más fuertes, desarrollar programas de referidos o recompensas por lealtad para maximizar la retención y el boca a boca en estas zonas.</li>
+                <li><strong>Expansión Digital en Barrios con Poca o Nula Presencia:</strong> Dirigir campañas de marketing digital (redes sociales, Google Ads) con segmentación geográfica hacia otros códigos postales de Logroño como <strong>26001 (Centro Histórico), 26002 (Oeste Central) o 26003 (Este)</strong>, que no están representados en la muestra.</li>
+                <li><strong>Alianzas Estratégicas:</strong> Buscar colaboraciones con comercios o servicios complementarios en zonas menos representadas, como cafeterías o boutiques en 26001, para ofrecer descuentos cruzados y ampliar el alcance.</li>
+                <li><strong>Eventos Temáticos o Puertas Abiertas:</strong> Organizar pequeños eventos en la peluquería, promocionándolos en el barrio de Cascajos y zonas colindantes, para generar interés y atraer a nuevos vecinos.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+```

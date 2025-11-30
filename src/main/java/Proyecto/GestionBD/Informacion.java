@@ -15,11 +15,9 @@ public class Informacion  extends TimerTask {
         Thread th1= new Thread(new EscribirXml(clientes));
         Thread th2= new Thread(new Consultar(th1));
         th1.start();
+        th2.start();
 
 
-        analizarEstadisticas("Estadisticas.xml");
-    }
-    private void analizarEstadisticas(String fileName) {
 
     }
 }

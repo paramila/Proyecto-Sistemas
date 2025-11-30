@@ -1,0 +1,3 @@
+--- Log de Clientes Asignados al Barbero Esteban ---
+El cliente :Juan tiene cita hoy a fecha y hora : 2025-12-01T08:15:00+01:00. 
+El cliente :Rafael tiene cita hoy a fecha y hora : 2025-12-01T11:00:00+01:00. 

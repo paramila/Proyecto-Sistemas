@@ -57,7 +57,7 @@ public class HiloBarbero implements Runnable {
             String telefono = e.getElementsByTagName("telefono").item(0).getTextContent().trim();
             String fecha = e.getElementsByTagName("fecha").item(0).getTextContent().trim();
 
-            String lneaCliente= "El cliente :"+nombre+" tieene cita hoy a fecha y hora : "+fecha+". \n";
+            String lneaCliente= "El cliente :"+nombre+" tiene cita hoy a fecha y hora : "+fecha+". \n";
             logBuilder.append(lneaCliente);
 
             contador=contador+numBarberos;

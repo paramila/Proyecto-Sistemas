@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.util.List;
 import jakarta.xml.bind.annotation.*;
-@XmlRootElement(namespace = "es.estadisticas.sdis")
+@XmlRootElement(namespace = "infomensual")
 public class InfoMensual implements Serializable {
     private List<Cliente> lista;
     private String nombre;

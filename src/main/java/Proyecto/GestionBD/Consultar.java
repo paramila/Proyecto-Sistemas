@@ -35,7 +35,7 @@ public class Consultar implements Runnable{
                 }
                 data.flush();
             }
-            try(FileOutputStream file= new FileOutputStream("Estadisticas_creadas.pdf");
+            try(FileOutputStream file= new FileOutputStream("Estadisticas_creadas.html");
                 DataInputStream in= new DataInputStream(https.getInputStream());){
                 in.readLine();
                 int leidos=0;
@@ -45,6 +45,7 @@ public class Consultar implements Runnable{
                 }
                 file.flush();
             }
+            System.out.println("Memoria escrita");
 
 
 

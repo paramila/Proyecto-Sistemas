@@ -1,0 +1,3 @@
+--- Log de Clientes Asignados al Barbero Pablo ---
+El cliente :Pedro tiene cita hoy a fecha y hora : 2025-12-01T08:00:00+01:00. 
+El cliente :Jaime tiene cita hoy a fecha y hora : 2025-12-01T10:00:00+01:00. 

@@ -3,11 +3,7 @@ import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.StringReader;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -15,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.ExecutorService; // <-- ¡AQUÍ ESTÁ!
-import java.util.concurrent.Executors;     // <-- ¡AQUÍ ESTÁ!
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Gestion extends TimerTask {
 
@@ -45,6 +41,10 @@ public class Gestion extends TimerTask {
         System.out.println("Pidiendo citas del día a n8n (Flujo 2)...");
         String xmlRespuesta = httpGet(URL_GET_CITAS);
         System.out.println("XML Recibido de n8n:\n" + xmlRespuesta);
+        if (xmlRespuesta == null || xmlRespuesta.trim().isEmpty()) {
+            System.err.println("¡Error! La respuesta de n8n está vacía. No hay nada que procesar.");
+            return;
+        }
 
 
 
@@ -60,7 +60,7 @@ public class Gestion extends TimerTask {
 
         ExecutorService ex = Executors.newFixedThreadPool(numBarberos);
         for (int i = 0; i < numBarberos; i++) {
-            ex.execute(new HiloBarbero(nodes,numBarberos, i,nombrebarberos.get(i))); // Le pasas la lista completa y el ID
+            ex.execute(new HiloBarbero(nodes,numBarberos, i,nombrebarberos.get(i)));
         }
 
         ex.shutdown();
@@ -87,12 +87,15 @@ public class Gestion extends TimerTask {
 
         int responseCode = con.getResponseCode();
         if (responseCode == HttpURLConnection.HTTP_OK) {
-            try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            DataOutputStream lista= new DataOutputStream(new FileOutputStream("Fichero.xml"))) {
                 String inputLine;
                 StringBuilder response = new StringBuilder();
                 while ((inputLine = in.readLine()) != null) {
+                    lista.writeBytes(inputLine+"\n");
                     response.append(inputLine);
                 }
+                lista.flush();
                 return response.toString();
             }
         } else {
