@@ -5,6 +5,7 @@ import org.w3c.dom.NodeList;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.URL;
 import java.util.ArrayList;
 /**
  * Clase que implementa la lógica de un "Barbero" como una tarea ejecutable (Runnable).
@@ -56,8 +57,9 @@ public class HiloBarbero implements Runnable {
             String correo = e.getElementsByTagName("email").item(0).getTextContent().trim();
             String telefono = e.getElementsByTagName("telefono").item(0).getTextContent().trim();
             String fecha = e.getElementsByTagName("fecha").item(0).getTextContent().trim();
-
-            String lneaCliente= "El cliente :"+nombre+" tiene cita hoy a fecha y hora : "+fecha+". \n";
+            String fecha_buena= fecha.replace('T',' ');
+            String fecha_final=fecha_buena.substring(0,19);
+            String lneaCliente= "El cliente :"+nombre+" tiene cita hoy a fecha y hora : "+fecha_final+". \n";
             logBuilder.append(lneaCliente);
 
             contador=contador+numBarberos;
@@ -71,4 +73,5 @@ public class HiloBarbero implements Runnable {
 
 
     }
+
 }

@@ -35,13 +35,14 @@ public class Hilo implements Runnable {
             String telefono = evento.getElementsByTagName("telefono").item(0).getTextContent().trim();
             String fecha    = evento.getElementsByTagName("fecha").item(0).getTextContent().trim();
 
-
+            String fecha_buena= fecha.replace('T',' ');
+            String fecha_final=fecha_buena.substring(0,19);
             if(correo.isEmpty() ) {
                 System.err.println( nombre + " no tiene email. Saltando.");
                 return;
             }
 
-            mandarCorreo(nombre, telefono, correo, fecha);
+            mandarCorreo(nombre, telefono, correo, fecha_final);
             if(!esCodigoPostalValido(codigo_Postal)) {
                 codigo_Postal="";
             }
@@ -54,6 +55,7 @@ public class Hilo implements Runnable {
         }
     }
 
+    //En este metodo mandamos a n8n (el encargado de mandar correos) la informacion clave en formato json para un extracción más sencilla en json(n8n trabaja en json)
 
     private void mandarCorreo(String nombre, String telefono, String correo, String fecha) {
         HttpsURLConnection con = null;
@@ -65,6 +67,7 @@ public class Hilo implements Runnable {
             con.setDoOutput(true);
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/json");
+
 
 
             StringBuilder texto = new StringBuilder();
