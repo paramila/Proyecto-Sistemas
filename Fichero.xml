@@ -1,45 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <eventos>
   <evento>
-    <nombre>Marcos</nombre>
-    <email>pabloramirezlacalle@gmail.com</email>
-    <telefono>600123456</telefono>
-    <codigo_postal>26005</codigo_postal>
-    <fecha>2025-12-01T08:00:00+01:00</fecha>
-  </evento>
-  <evento>
-    <nombre>Pedro</nombre>
-    <email>cliente@ejemplo.com</email>
-    <telefono>612345678</telefono>
-    <codigo_postal>26004</codigo_postal>
-    <fecha>2025-12-01T08:00:00+01:00</fecha>
-  </evento>
-  <evento>
     <nombre>Juan</nombre>
     <email>pabloramirezlacalle@gmail.com</email>
     <telefono>600123456</telefono>
-    <codigo_postal>26005</codigo_postal>
-    <fecha>2025-12-01T08:15:00+01:00</fecha>
+    <codigo_postal>26004</codigo_postal>
+    <fecha>2025-12-03T12:30:00+01:00</fecha>
   </evento>
   <evento>
-    <nombre>Lucas</nombre>
+    <nombre>rafael</nombre>
     <email>pabloramirezlacalle@gmail.com</email>
     <telefono>600123456</telefono>
     <codigo_postal>26006</codigo_postal>
-    <fecha>2025-12-01T09:00:00+01:00</fecha>
+    <fecha>2025-12-03T13:00:00+01:00</fecha>
   </evento>
   <evento>
-    <nombre>Jaime</nombre>
+    <nombre>Pedro</nombre>
+    <email>pabloramirezlacalle@gmail.com</email>
+    <telefono>600123456</telefono>
+    <codigo_postal>26006</codigo_postal>
+    <fecha>2025-12-03T12:15:00+01:00</fecha>
+  </evento>
+  <evento>
+    <nombre>Yazid</nombre>
+    <email>pabloramirezlacalle@gmail.com</email>
+    <telefono>600123456</telefono>
+    <codigo_postal>26006</codigo_postal>
+    <fecha>2025-12-06T15:30:00+01:00</fecha>
+  </evento>
+  <evento>
+    <nombre>Ricardo</nombre>
     <email>pabloramirezlacalle@gmail.com</email>
     <telefono>600123456</telefono>
     <codigo_postal>26004</codigo_postal>
-    <fecha>2025-12-01T10:00:00+01:00</fecha>
-  </evento>
-  <evento>
-    <nombre>Rafael</nombre>
-    <email>pabloramirezlacalle@gmail.com</email>
-    <telefono>600123456</telefono>
-    <codigo_postal>26005</codigo_postal>
-    <fecha>2025-12-01T11:00:00+01:00</fecha>
+    <fecha>2025-12-03T12:30:00+01:00</fecha>
   </evento>
 </eventos>

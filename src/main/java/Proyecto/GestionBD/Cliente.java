@@ -8,14 +8,16 @@ public class Cliente implements Serializable {
     private String telefono;
     private String codigoPostal;
     private String correo;
+    private String fecha;
     public Cliente() {
 
     }
-    public Cliente(String nombre, String telefono, String codigoPostal, String correo) {
+    public Cliente(String nombre, String telefono, String codigoPostal, String correo,String fecha) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.codigoPostal = codigoPostal;
         this.correo = correo;
+        this.fecha = fecha;
     }
 
     @XmlElement(name="Código_postal")
@@ -41,4 +43,10 @@ public class Cliente implements Serializable {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+    @XmlElement(name="fecha")
+    public String getFecha() {
+        return fecha;
+    }
+    public void setFecha(String fecha) {this.fecha = fecha;}
 }

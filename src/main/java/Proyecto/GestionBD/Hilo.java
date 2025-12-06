@@ -36,7 +36,7 @@ public class Hilo implements Runnable {
             String fecha    = evento.getElementsByTagName("fecha").item(0).getTextContent().trim();
 
             String fecha_buena= fecha.replace('T',' ');
-            String fecha_final=fecha_buena.substring(0,19);
+            String fecha_final=fecha_buena.substring(0,16);
             if(correo.isEmpty() ) {
                 System.err.println( nombre + " no tiene email. Saltando.");
                 return;
@@ -47,7 +47,7 @@ public class Hilo implements Runnable {
                 codigo_Postal="";
             }
 
-            li.add(new Cliente(nombre, telefono, codigo_Postal, correo));
+            li.add(new Cliente(nombre, telefono, codigo_Postal, correo,fecha_final));
 
         } catch (Exception e) {
             System.err.println("[Hilo " + Thread.currentThread().getId() + "] Error general: " + e.getMessage());

@@ -24,4 +24,5 @@ public class InfoMensual implements Serializable {
         this.nombre = nombre;
     }
 
+
 }

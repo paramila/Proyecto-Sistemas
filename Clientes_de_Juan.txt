@@ -1,3 +1,3 @@
 --- Log de Clientes Asignados al Barbero Juan ---
-El cliente :Marcos tiene cita hoy a fecha y hora : 2025-12-01T08:00:00+01:00. 
-El cliente :Lucas tiene cita hoy a fecha y hora : 2025-12-01T09:00:00+01:00. 
+El cliente :Juan tiene cita hoy a fecha y hora : 2025-12-03 12:30. 
+El cliente :Yazid tiene cita hoy a fecha y hora : 2025-12-06 15:30. 

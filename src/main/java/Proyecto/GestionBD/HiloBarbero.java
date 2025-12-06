@@ -58,7 +58,7 @@ public class HiloBarbero implements Runnable {
             String telefono = e.getElementsByTagName("telefono").item(0).getTextContent().trim();
             String fecha = e.getElementsByTagName("fecha").item(0).getTextContent().trim();
             String fecha_buena= fecha.replace('T',' ');
-            String fecha_final=fecha_buena.substring(0,19);
+            String fecha_final=fecha_buena.substring(0,16);
             String lneaCliente= "El cliente :"+nombre+" tiene cita hoy a fecha y hora : "+fecha_final+". \n";
             logBuilder.append(lneaCliente);
 

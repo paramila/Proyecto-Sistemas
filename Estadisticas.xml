@@ -2,33 +2,33 @@
 <ns2:infoMensual xmlns:ns2="infomensual">
     <listaClientes>
         <Cliente>
-            <Código_postal>26005</Código_postal>
-            <nombre>Juan</nombre>
-            <telefono>600123456</telefono>
-        </Cliente>
-        <Cliente>
-            <Código_postal>26004</Código_postal>
-            <nombre>Jaime</nombre>
+            <Código_postal>26006</Código_postal>
+            <fecha>2025-12-03 13:00</fecha>
+            <nombre>rafael</nombre>
             <telefono>600123456</telefono>
         </Cliente>
         <Cliente>
             <Código_postal>26006</Código_postal>
-            <nombre>Lucas</nombre>
+            <fecha>2025-12-03 12:15</fecha>
+            <nombre>Pedro</nombre>
             <telefono>600123456</telefono>
         </Cliente>
         <Cliente>
             <Código_postal>26004</Código_postal>
-            <nombre>Pedro</nombre>
-            <telefono>612345678</telefono>
-        </Cliente>
-        <Cliente>
-            <Código_postal>26005</Código_postal>
-            <nombre>Marcos</nombre>
+            <fecha>2025-12-03 12:30</fecha>
+            <nombre>Juan</nombre>
             <telefono>600123456</telefono>
         </Cliente>
         <Cliente>
-            <Código_postal>26005</Código_postal>
-            <nombre>Rafael</nombre>
+            <Código_postal>26006</Código_postal>
+            <fecha>2025-12-06 15:30</fecha>
+            <nombre>Yazid</nombre>
+            <telefono>600123456</telefono>
+        </Cliente>
+        <Cliente>
+            <Código_postal>26004</Código_postal>
+            <fecha>2025-12-03 12:30</fecha>
+            <nombre>Ricardo</nombre>
             <telefono>600123456</telefono>
         </Cliente>
     </listaClientes>
