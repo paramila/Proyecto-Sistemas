@@ -5,6 +5,12 @@ import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 
+
+
+
+
+
+
 public class Servidor {
     private static final int puerto = 8080;
     private static final long periodoDia= 24L * 60L *60L * 1000L;
